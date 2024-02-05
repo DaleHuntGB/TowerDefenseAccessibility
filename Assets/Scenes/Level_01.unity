@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -534,6 +534,7 @@ MonoBehaviour:
   enemyRoute: {fileID: 5937201553780983342, guid: b40a845a8de13be409a23beeaa8a8585, type: 3}
   enemy: {fileID: 5854825596497327174, guid: e8236383a33f6f24697fb11a62c55f6e, type: 3}
   turret: {fileID: 7849884328251488894, guid: 1a8bebebd8ca39f4d8ac24888a55ea2c, type: 3}
+  turretBullet: {fileID: 9058836913910568210, guid: 4b07af159cc6ef44790ca9c1ff80bf95, type: 3}
 --- !u!114 &1811420529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AccessibilityManager: {fileID: 1811420528}
-  UIManager: {fileID: 0}
   spawnPoint: {fileID: 2010938196}
   enemy: {fileID: 6817092137410358399, guid: e8236383a33f6f24697fb11a62c55f6e, type: 3}
 --- !u!114 &1904992565
@@ -624,6 +624,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 32x32 Game Board
       objectReference: {fileID: 0}
+    - target: {fileID: 3732948175977969769, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6817092137410358399, guid: e8236383a33f6f24697fb11a62c55f6e, type: 3}
+    - target: {fileID: 3732948175977969769, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: enemyTarget
+      value: 
+      objectReference: {fileID: 6817092137410358399, guid: e8236383a33f6f24697fb11a62c55f6e, type: 3}
+    - target: {fileID: 3732948175977969769, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: partToRotate
+      value: 
+      objectReference: {fileID: 3752787036442590258, guid: 1a8bebebd8ca39f4d8ac24888a55ea2c, type: 3}
     - target: {fileID: 5191103419107742824, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15

@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     private int wayPointIndex = 0;
     private float speed = 20f;
     private GameManager GameManager;
+    public float enemyHealth = 100f;
 
     private void Start()
     {
@@ -40,9 +41,25 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("EndPoint"))
         {
-            GameManager.EnemyReachedEnd();
+            GameManager.EnemyReachedEnd(gameObject);
             Destroy(gameObject);
             Debug.Log("Enemy Reached End");
         }
+    }
+
+
+    public void TakeDamage(float damage)
+    {
+        enemyHealth -= damage;
+        Debug.Log(enemyHealth);
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public float GetCurrentHealth()
+    {
+        return enemyHealth;
     }
 }

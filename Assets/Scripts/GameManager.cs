@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private GameObject turret;
     private GameManager GM;
     //private GameObject turretBullet;
-    private float currentHealth = 100f;
+    private float currentHealth = 500f;
     private float maxHealth = 100f;
     private float spawnInterval = 5f;
     private float spawnCooldown = 2f;
@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
             currentWaveCount++;
             if (currentWaveCount <= maxWaveCount)
             {
-                Debug.Log("Spawning Wave #" + currentWaveCount + " | Game Over? " + isGameOver);
                 StartCoroutine(SpawnEnemyWave());
             }
         }
@@ -143,20 +142,30 @@ public class GameManager : MonoBehaviour
     public void SpawnEnemy()
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+
     }
-    public void EnemyReachedEnd()
+    public void EnemyReachedEnd(GameObject enemy)
     {
-        currentHealth -= 10f;
-        UpdateGameTiles();
-        if (currentHealth <= 0)
+        Debug.Log(currentHealth);
+        // Access EnemyController to get current health
+        EnemyController EnemyController = enemy.GetComponent<EnemyController>();
+        if (EnemyController != null)
         {
-            isGameOver = true;
-            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+            float enemyHealth = EnemyController.GetCurrentHealth();
+            // Use enemyHealth to subtract from player health
+            currentHealth -= enemyHealth;  // Assuming you want to subtract the enemy's current health from the player's health
+            UpdateGameTiles();
+            if (currentHealth <= 0)
             {
-                Destroy(enemy);
+                isGameOver = true;
+                foreach (GameObject enemyObject in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    Destroy(enemyObject);
+                }
             }
         }
     }
+
 
     public void ResumeGame()
     {
