@@ -5,10 +5,15 @@
 # Goals
 
 [x] - Protanopia Colourblind Mode.
+
 [x] - Deuteranopia Colourblind Mode.
+
 [x] - Tritanopia Colourblind Mode.
+
 [x] - High Contrast Colourblind Mode.
+
 [x] - Greyscale Colourblind Mode.
+
 [ ] - User Control Colours via Colour Pickers.
 
 # Approach
