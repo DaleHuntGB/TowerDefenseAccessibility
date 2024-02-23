@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,6 +80,17 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(LoadSettingsMenuCoroutine());
             }
         }
+
+        // Do not go to release.
+
+        // Swap color profile when entering and exiting play mode
+        EditorApplication.playModeStateChanged += (PlayModeStateChange state) =>
+        {
+            if (state == PlayModeStateChange.ExitingPlayMode)
+            {
+                AccessibilityManager.ApplyColorProfile(AccessibilityManager.defaultProfile);
+            }
+        };
     }
 
     IEnumerator LoadSettingsMenuCoroutine()

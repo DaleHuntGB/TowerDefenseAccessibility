@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,18 +12,18 @@ public class UIManager : MonoBehaviour
     public Button tritanopiaClrBtn;
     public Button highContrastClrBtn;
     public Button greyscaleClrBtn;
-    public Toggle useCustomProfile;
+    public Button customProfileBtn;
     public Button resumeGameBtn;
     public Button quitGameBtn;
 
     // Give the UI Manager access to the Accessibility Manager to call colour switch functions.
-    private AccessibilityManager AccessibilityManager;
-    private GameManager GameManager;
+    private static AccessibilityManager AccessibilityManager;
+    private static GameManager GameManager;
 
     private void Awake()
     {
-        AccessibilityManager = GameObject.Find("_AccessibilityManager").GetComponent<AccessibilityManager>();
-        GameManager = GameObject.Find("_GameManager").GetComponent<GameManager>();
+        AccessibilityManager = FindObjectOfType<AccessibilityManager>();
+        GameManager = FindObjectOfType<GameManager>();
     }
     void Start()
     {
@@ -32,7 +33,7 @@ public class UIManager : MonoBehaviour
         tritanopiaClrBtn.onClick.AddListener(() => OnColorProfileChanged("Tritanopia"));
         highContrastClrBtn.onClick.AddListener(() => OnColorProfileChanged("HighContrast"));
         greyscaleClrBtn.onClick.AddListener(() => OnColorProfileChanged("Greyscale"));
-        useCustomProfile.onValueChanged.AddListener(delegate { ToggleCustomProfile(useCustomProfile.isOn); });
+        customProfileBtn.onClick.AddListener(() => CustomProfileColorSelection());
         resumeGameBtn.onClick.AddListener(() => GameManager.ResumeGame());
         quitGameBtn.onClick.AddListener(() => GameManager.QuitGame());
     }
@@ -66,18 +67,9 @@ public class UIManager : MonoBehaviour
         return activeScene.name == sceneName;
     }
 
-    void ToggleCustomProfile(bool useCustomProfile)
+    void CustomProfileColorSelection()
     {
-        if (useCustomProfile)
-        {
-            OnColorProfileChanged("Custom");
-            AccessibilityManager.ApplyColorProfile(AccessibilityManager.customProfile);
-        }
-        else
-        {
-            OnColorProfileChanged("Default");
-            AccessibilityManager.ApplyColorProfile(AccessibilityManager.defaultProfile);
-        }
+        SceneManager.LoadScene("CustomProfileColorManager");
     }
 }
 
