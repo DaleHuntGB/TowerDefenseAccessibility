@@ -37,6 +37,7 @@ public class AccessibilityManager : MonoBehaviour
     public GameObject turret;
     public GameObject turretBullet;
 
+    public ColorProperty currentColorProperty;
     private void Awake()
     {
         DefineProfiles();
@@ -131,14 +132,14 @@ public class AccessibilityManager : MonoBehaviour
         customProfile = new ColorProfile()
         {
             gameWallClr = new Color(15 / 255f, 15 / 255f, 15 / 255f, 255 / 255f),           // #0F0F0F
-            startPointClr = new Color(64 / 255f, 64 / 255f, 64 / 255f, 255 / 255f),         // #404040
-            endPointClr = new Color(128 / 255f, 128 / 255f, 128 / 255f, 255 / 255f),        // #808080
-            enemyRouteClr = new Color(192 / 255f, 192 / 255f, 192 / 255f, 255 / 255f),      // #C0C0C0
-            enemyClr = new Color(64 / 255f, 64 / 255f, 64 / 255f, 255 / 255f),              // #404040
-            turretClr = new Color(128 / 255f, 128 / 255f, 128 / 255f, 255 / 255f),          // #808080
-            turretBulletClr = new Color(192 / 255f, 192 / 255f, 192 / 255f, 255 / 255f),    // #C0C0C0
-            highHealthClr = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f),      // #FFFFFf
-            lowHealthClr = new Color(64 / 255f, 64 / 255f, 64 / 255f, 255 / 255f),          // #404040
+            startPointClr = new Color(64 / 255f, 64 / 255f, 255 / 255f, 255 / 255f),        // #4040FF
+            endPointClr = new Color(128 / 255f, 64 / 255f, 255 / 255f, 255 / 255f),         // #8040FF
+            enemyRouteClr = new Color(128 / 255f, 128 / 255f, 255 / 255f, 255 / 255f),      // #8080FF
+            enemyClr = new Color(255 / 255f, 64 / 255f, 64 / 255f, 255 / 255f),             // #FF4040
+            turretClr = new Color(255 / 255f, 128 / 255f, 64 / 255f, 255 / 255f),           // #FF8040
+            turretBulletClr = new Color(0 / 255f, 170 / 255f, 187 / 255f, 255 / 255f),      // #00AABB
+            highHealthClr = new Color(64 / 255f, 255 / 255f, 64 / 255f, 255 / 255f),        // #40FF40
+            lowHealthClr = new Color(255 / 255f, 64 / 255f, 64 / 255f, 255 / 255f),         // #FF4040
         };
     }
 
@@ -188,6 +189,41 @@ public class AccessibilityManager : MonoBehaviour
     public ColorProfile GetCurrentProfile()
     {
         return currentProfile;
+    }
+
+    public void UpdateCustomProfile(ColorProperty property, Color newColor)
+    {
+        switch (property)
+        {
+            case ColorProperty.GameWall:
+                customProfile.gameWallClr = newColor;
+                break;
+            case ColorProperty.StartPoint:
+                customProfile.startPointClr = newColor;
+                break;
+            case ColorProperty.EndPoint:
+                customProfile.endPointClr = newColor;
+                break;
+            case ColorProperty.EnemyRoute:
+                customProfile.enemyRouteClr = newColor;
+                break;
+            case ColorProperty.Enemy:
+                customProfile.enemyClr = newColor;
+                break;
+            case ColorProperty.Turret:
+                customProfile.turretClr = newColor;
+                break;
+            case ColorProperty.TurretBullet:
+                customProfile.turretBulletClr = newColor;
+                break;
+            case ColorProperty.HighHealth:
+                customProfile.highHealthClr = newColor;
+                break;
+            case ColorProperty.LowHealth:
+                customProfile.lowHealthClr = newColor;
+                break;
+        }
+        ApplyColorProfile(customProfile);
     }
 }
 

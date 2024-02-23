@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
 
     void CustomProfileColorSelection()
     {
-        SceneManager.LoadScene("CustomProfileColorManager");
+        SceneManager.LoadScene("CustomProfileColorManager", LoadSceneMode.Additive);
     }
 }
 

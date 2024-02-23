@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings_Menu.unity
     guid: 718dcceae22b2a14cbcef1e89795a44c
+  - enabled: 1
+    path: Assets/Scenes/CustomProfileColorManager.unity
+    guid: 38aabfaf675b2d2408aef1773ec77379
+  - enabled: 1
+    path: Assets/Scenes/ColorPicker.unity
+    guid: 9acfc14fe8a5df940aaa277395e919a5
   m_configObjects: {}

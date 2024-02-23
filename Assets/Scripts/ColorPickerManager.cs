@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ColorPickerManager : MonoBehaviour
@@ -12,18 +14,30 @@ public class ColorPickerManager : MonoBehaviour
     public Slider redSlider;
     public Slider greenSlider;
     public Slider blueSlider;
+
+    public Button saveColours;
+
+    public ColorProperty currentColorProperty;
+
+    private static AccessibilityManager AccessibilityManager;
+    private static GameManager GameManager;
+
+    private void Awake()
+    {
+        AccessibilityManager = FindObjectOfType<AccessibilityManager>();
+        GameManager = FindObjectOfType<GameManager>();
+    }
+
     void Start()
     {
-        // Get GameManager and AccessibilityManager
-        // Initialize Values
-        //InitializeValues();
-        // Event Listeners
         redInput.onSubmit.AddListener(delegate { UpdateColorsViaInput(); });
         greenInput.onSubmit.AddListener(delegate { UpdateColorsViaInput(); });
         blueInput.onSubmit.AddListener(delegate { UpdateColorsViaInput(); });
         redSlider.onValueChanged.AddListener(delegate { UpdateColorsViaSliders(); });
         greenSlider.onValueChanged.AddListener(delegate { UpdateColorsViaSliders(); });
         blueSlider.onValueChanged.AddListener(delegate { UpdateColorsViaSliders(); });
+
+        saveColours.onClick.AddListener(delegate { SaveColours(); });
     } 
 
     private void UpdateColorsViaInput()
@@ -50,9 +64,6 @@ public class ColorPickerManager : MonoBehaviour
             }
 
             colorBlock.color = new Color((float)redValue, (float)greenValue, (float)blueValue); 
-
-            // Print Colours
-            Debug.Log("Red: " + redValue + " Green: " + greenValue + " Blue: " + blueValue);
 
             redSlider.value = redValue;
             greenSlider.value = greenValue;
@@ -86,5 +97,11 @@ public class ColorPickerManager : MonoBehaviour
         blueSlider.value = initialColor.b;
     }
 
+    private void SaveColours()
+    {
+        Color newColor = colorBlock.color;
+        AccessibilityManager.UpdateCustomProfile(currentColorProperty, newColor);
+        SceneManager.UnloadSceneAsync("ColorPicker");
+    }
 
 }

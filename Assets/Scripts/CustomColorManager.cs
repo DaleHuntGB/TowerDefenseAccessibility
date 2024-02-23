@@ -1,7 +1,9 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class CustomColorManager : MonoBehaviour
 {
     public Image gameWallClr;
@@ -25,6 +27,9 @@ public class CustomColorManager : MonoBehaviour
     public Button enemyClrBtn;
 
     public GameObject colorPicker;
+    public ColorProperty currentColorProperty;
+
+    public Button saveColorSelection;
 
     private static AccessibilityManager AccessibilityManager;
     private static GameManager GameManager;
@@ -49,35 +54,55 @@ public class CustomColorManager : MonoBehaviour
         enemyRouteClr.color = AccessibilityManager.GetCurrentProfile().enemyRouteClr;
         enemyClr.color = AccessibilityManager.GetCurrentProfile().enemyClr;
 
-        gameWallClrBtn.onClick.AddListener(() => ToggleColorPicker(gameWallClr));
-        startPointClrBtn.onClick.AddListener(() => ToggleColorPicker(startPointClr));
-        endPointClrBtn.onClick.AddListener(() => ToggleColorPicker(endPointClr));
-        highHealthClrBtn.onClick.AddListener(() => ToggleColorPicker(highHealthClr));
-        lowHealthClrBtn.onClick.AddListener(() => ToggleColorPicker(lowHealthClr));
-        turretClrBtn.onClick.AddListener(() => ToggleColorPicker(turretClr));
-        turretBulletClrBtn.onClick.AddListener(() => ToggleColorPicker(turretBulletClr));
-        enemyRouteClrBtn.onClick.AddListener(() => ToggleColorPicker(enemyRouteClr));
-        enemyClrBtn.onClick.AddListener(() => ToggleColorPicker(enemyClr));
+        gameWallClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.GameWall));
+        startPointClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.StartPoint));
+        endPointClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.EndPoint));
+        highHealthClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.HighHealth));
+        lowHealthClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.LowHealth));
+        turretClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.Turret));
+        turretBulletClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.TurretBullet));
+        enemyRouteClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.EnemyRoute));
+        enemyClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.Enemy));
+
+        saveColorSelection.onClick.AddListener(() => SaveColorSelection());
 
     }
 
-    public void ToggleColorPicker(Image imageToEdit)
+    public void ToggleColorPicker(ColorProperty colorProperty)
     {
-        currentEditingImage = imageToEdit; // Store the reference to the image being edited
-        GameObject colorPickerInstance = Instantiate(colorPicker, FindObjectOfType<Canvas>().transform, false);
-        ColorPickerManager pickerManager = colorPickerInstance.GetComponent<ColorPickerManager>();
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("ColorPicker", LoadSceneMode.Additive);
 
-        if (pickerManager != null)
+        // Start the coroutine to wait for the scene to fully load
+        StartCoroutine(WaitForSceneLoad(asyncLoad, colorProperty));
+    }
+
+
+    private IEnumerator WaitForSceneLoad(AsyncOperation asyncLoad, ColorProperty colorProperty)
+    {
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
         {
-            pickerManager.colorBlock.color = imageToEdit.color; // Set the initial color of the color block
-            pickerManager.InitializeValues(imageToEdit.color); // Initialize the color picker values with the current color
-            colorPickerInstance.SetActive(true); // Activate the color picker instance
+            yield return null;
+        }
+
+        // Now the scene is fully loaded, find the ColorPickerManager in the newly loaded scene
+        ColorPickerManager colorPickerManager = FindObjectOfType<ColorPickerManager>();
+
+        if (colorPickerManager != null)
+        {
+            // Set the color property to be edited
+            colorPickerManager.currentColorProperty = colorProperty;
         }
         else
         {
-            Debug.LogError("ColorPickerManager component is missing on the instantiated color picker prefab.");
+            Debug.LogError("ColorPickerManager not found in the loaded scene.");
         }
     }
 
 
+    public void SaveColorSelection()
+    {
+        GameManager.UpdateGameTiles();
+        SceneManager.UnloadSceneAsync("CustomProfileColorManager");
+    }
 }

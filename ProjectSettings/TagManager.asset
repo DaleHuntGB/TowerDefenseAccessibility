@@ -17,6 +17,7 @@ TagManager:
   - GameManager
   - UI
   - Settings
+  - ColorPicker
   layers:
   - Default
   - TransparentFX

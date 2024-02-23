@@ -3547,6 +3547,8 @@ MonoBehaviour:
   enemyRouteClrBtn: {fileID: 1916530920}
   enemyClrBtn: {fileID: 1028481426}
   colorPicker: {fileID: 3219184703172111716, guid: 9bd313c23bb3be34e985e59ea6206aa9, type: 3}
+  currentColorProperty: 0
+  saveColorSelection: {fileID: 307807201}
 --- !u!1 &1553142383
 GameObject:
   m_ObjectHideFlags: 0
