@@ -20,5 +20,9 @@ public class TurretBulletController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
+        if (transform.position.z > 50 || transform.position.z < -50 || transform.position.x > 50 || transform.position.x < -50)
+        {
+            Destroy(gameObject);
+        }
     }
 }

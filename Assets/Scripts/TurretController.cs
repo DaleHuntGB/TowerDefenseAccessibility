@@ -5,7 +5,7 @@ public class TurretController : MonoBehaviour
 {
     public Transform enemyTarget;
     public GameObject turretBullet;
-    private float fireRate = 0.5f;
+    private float fireRate = 0.3f;
     public float range = 15f;
     public float turnSpeed = 10f;
 
@@ -55,7 +55,7 @@ public class TurretController : MonoBehaviour
         if (fireRate <= 0f)
         {
             Shoot();
-            fireRate = 1f;
+            fireRate = 0.3f;
         }
     }
 

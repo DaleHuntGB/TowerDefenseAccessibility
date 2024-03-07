@@ -34,7 +34,6 @@ public class CustomColorManager : MonoBehaviour
     private static AccessibilityManager AccessibilityManager;
     private static GameManager GameManager;
     private static ColorPickerManager ColorPickerManager;
-    private Image currentEditingImage;
 
     private void Awake()
     {

@@ -17,16 +17,18 @@ public class GameManager : MonoBehaviour
     private GameObject startPoint;
     private GameObject endPoint;  
     private GameObject enemyRoute;
+    private GameObject[] spawnedEnemies;
     private GameObject turret;
     private GameManager GM;
     //private GameObject turretBullet;
     private float currentHealth = 500f;
-    private float maxHealth = 100f;
+    private float maxHealth = 500f;
     private float spawnInterval = 5f;
     private float spawnCooldown = 2f;
     private int currentWaveCount = 0;
     private int maxWaveCount = 5;
     private bool isGameOver = false;
+    private int playerMoney = 500;
 
     void Start()
     {
@@ -81,16 +83,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Do not go to release.
-
-        // Swap color profile when entering and exiting play mode
-        EditorApplication.playModeStateChanged += (PlayModeStateChange state) =>
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            if (state == PlayModeStateChange.ExitingPlayMode)
-            {
-                AccessibilityManager.ApplyColorProfile(AccessibilityManager.defaultProfile);
-            }
-        };
+            PlaceTurret(100, turret);
+        }
+
     }
 
     IEnumerator LoadSettingsMenuCoroutine()
@@ -119,7 +116,6 @@ public class GameManager : MonoBehaviour
         if (!turret) Debug.LogError("Turret was not initialized correctly.");
         //if (!turretBullet) Debug.LogError("TurretBullet was not initialized correctly.");
     }
-    // Additional GameManager logic here (game state management, spawning enemies, etc.)
 
     public void UpdateGameTiles()
     {
@@ -128,6 +124,8 @@ public class GameManager : MonoBehaviour
 
         // Calculate the health percentage
         float healthPercentage = currentHealth / maxHealth;
+
+        Debug.Log("Health Percent: " + healthPercentage);
 
         // Interpolate between the high and low health colors based on the current health percentage
         Color tileColor = Color.Lerp(currentProfile.lowHealthClr, currentProfile.highHealthClr, healthPercentage);
@@ -153,31 +151,47 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnEnemy()
     {
-        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-
+        GameObject enemyInstance = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation).gameObject;
+        spawnedEnemies = new GameObject[] { enemyInstance };
     }
+
     public void EnemyReachedEnd(GameObject enemy)
     {
-        Debug.Log(currentHealth);
-        // Access EnemyController to get current health
-        EnemyController EnemyController = enemy.GetComponent<EnemyController>();
-        if (EnemyController != null)
+        // Get Enemy Health and Subtract It From Current Health.
+        float enemyHealth = enemy.GetComponent<EnemyController>().enemyHealth;
+        currentHealth -= enemyHealth;
+        // Update Game Tiles (Reflecting Health Changes)
+        UpdateGameTiles();
+        // Destroy The Enemy That Reached The End
+        Destroy(enemy);
+
+        // Game Over Check
+        if (currentHealth <= 0)
         {
-            float enemyHealth = EnemyController.GetCurrentHealth();
-            // Use enemyHealth to subtract from player health
-            currentHealth -= enemyHealth;  // Assuming you want to subtract the enemy's current health from the player's health
-            UpdateGameTiles();
-            if (currentHealth <= 0)
+            GameOver();
+        }
+
+    }
+
+    private void PlaceTurret(int turretCost, GameObject turret)
+    {
+        if (!isGameOver && playerMoney >= turretCost)
+        {
+            Ray rayCastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit rayCastHit;
+            if (Physics.Raycast(rayCastRay, out rayCastHit))
             {
-                isGameOver = true;
-                foreach (GameObject enemyObject in GameObject.FindGameObjectsWithTag("Enemy"))
+                if (rayCastHit.collider.tag == "GameTile")
                 {
-                    Destroy(enemyObject);
+                    // Place the turret on the game tile not inside the game tile
+                    Vector3 turretPosition = rayCastHit.collider.transform.position + new Vector3(0, 1.25f, 0);
+                    Instantiate(turret, turretPosition, Quaternion.identity);
+                    playerMoney -= turretCost;
+                    Debug.Log("Turret Placed. Remaining money: " + playerMoney);
                 }
             }
         }
     }
-
 
     public void ResumeGame()
     {
@@ -189,4 +203,28 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void GameOver()
+    {
+        // Destroy All Enemies.
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
+        // Destroy All Turrets
+        GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
+        foreach (GameObject turret in turrets)
+        {
+            Destroy(turret);
+        }
+
+        // Destroy All Turret Bullets
+        GameObject[] turretBullets = GameObject.FindGameObjectsWithTag("TurretBullet");
+        foreach (GameObject turretBullet in turretBullets)
+        {
+            Destroy(turretBullet);
+        }
+    }    
 }

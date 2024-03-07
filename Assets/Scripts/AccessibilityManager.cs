@@ -143,6 +143,65 @@ public class AccessibilityManager : MonoBehaviour
         };
     }
 
+    // Improved Colour Differences for Protanopia, Deuteranopia, Tritanopia & Greyscale.
+    // https://www.colorhexa.com
+    /*
+        
+        #0F0F0F // Game Wall
+        Protanopia: #1B1B1B 
+        Deuteranopia: #1D1A1B
+        Tritanopia: #1B1B1D
+        Greyscale: #0F0F0F
+        
+        #4040FF // Start Point
+        Protanopia: #0066C6
+        Deuteranopia: #006CAC
+        Tritanopia: #007379
+        Greyscale: #565656
+
+        #8040FF // End Point
+        Protanopia: #0071DD
+        Deuteranopia: #0078C1
+        Tritanopia: #577A83
+        Greyscale: #696969
+
+        #8080FF // Enemy Route
+        Protanopia: #5790FF
+        Deuteranopia: #2B96F8
+        Tritanopia: #639DA8
+        Greyscale: #8E8E8E
+
+        #FF4040 // Enemy
+        Protanopia: #9C8F5E
+        Deuteranopia: #B1893B
+        Tritanopia: #FF494C
+        Greyscale: #797979
+
+        #FF8040 // Turret
+        Protanopia: #BAA853
+        Deuteranopia: #D0A041
+        Tritanopia: #FF8189
+        Greyscale: #9F9F9F
+
+        #00AABB // Turret Bullet
+        Protanopia: #9B9EB4
+        Deuteranopia: #999CC5
+        Tritanopia: #00AEBB
+        Greyscale: #797979
+
+        #40FF40 // High Health
+        Protanopia: #F9E041
+        Deuteranopia: #FFD9A8
+        Tritanopia: #8CEEFF
+        Greyscale: #B0B0B0
+
+        #FF4040 // Low Health
+        Protanopia: #9C8F5E
+        Deuteranopia: #B1893B
+        Tritanopia: #FF494C
+        Greyscale: #797979
+     */
+
     // Apply Colors from Color Profiles.
     public void ApplyColorProfile(ColorProfile profile)
     {

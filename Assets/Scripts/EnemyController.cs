@@ -5,13 +5,13 @@ public class EnemyController : MonoBehaviour
     private Transform wayPointTarget;
     private int wayPointIndex = 0;
     private float speed = 20f;
-    private GameManager GameManager;
+    private static GameManager GameManager;
     public float enemyHealth = 100f;
 
     private void Start()
     {
         wayPointTarget = WaypointManager.wayPoints[0];
-        GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        GameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -43,7 +43,6 @@ public class EnemyController : MonoBehaviour
         {
             GameManager.EnemyReachedEnd(gameObject);
             Destroy(gameObject);
-            Debug.Log("Enemy Reached End");
         }
     }
 
@@ -51,7 +50,6 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         enemyHealth -= damage;
-        Debug.Log(enemyHealth);
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
