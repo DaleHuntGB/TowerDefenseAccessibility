@@ -62,7 +62,7 @@ Additionally, this allows for me to create a custom profile that can easily be m
 
 #### Tritanopia
 
-![Tritanopia Colours](https://i.imgur.com/0ipv0IW.png)
+![Tritanopia Colours](https://i.imgur.com/Xi9LpBx.png)
 
 #### High Contrast
 
