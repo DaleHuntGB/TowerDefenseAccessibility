@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -29,6 +27,7 @@ public class CameraController : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0f)
         {
+            // Clamp To Specific FOV Values (30, 60, 90)
             Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - (scroll * 30), 30, 90);
         }
     }

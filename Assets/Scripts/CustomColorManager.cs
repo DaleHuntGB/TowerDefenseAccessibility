@@ -1,11 +1,11 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CustomColorManager : MonoBehaviour
 {
+    // These need to be public so that the colour picker is able to access them
     public Image gameWallClr;
     public Image startPointClr;
     public Image endPointClr;
@@ -15,7 +15,7 @@ public class CustomColorManager : MonoBehaviour
     public Image turretBulletClr;
     public Image enemyRouteClr;
     public Image enemyClr;
-
+    // Public so that colour picker buttons can be assigned
     public Button gameWallClrBtn;
     public Button startPointClrBtn;
     public Button endPointClrBtn;
@@ -39,7 +39,6 @@ public class CustomColorManager : MonoBehaviour
     {
         AccessibilityManager = FindObjectOfType<AccessibilityManager>();
         GameManager = FindObjectOfType<GameManager>();
-        ColorPickerManager = FindObjectOfType<ColorPickerManager>();
     }
     void Start()
     {
@@ -73,6 +72,7 @@ public class CustomColorManager : MonoBehaviour
 
         // Start the coroutine to wait for the scene to fully load
         StartCoroutine(WaitForSceneLoad(asyncLoad, colorProperty));
+        ColorPickerManager = FindObjectOfType<ColorPickerManager>();
     }
 
 
@@ -103,5 +103,40 @@ public class CustomColorManager : MonoBehaviour
     {
         GameManager.UpdateGameTiles();
         SceneManager.UnloadSceneAsync("CustomProfileColorManager");
+    }
+
+    public void UpdateColourBlocks(ColorProperty currentColorProperty)
+    {
+        Debug.Log("Current Color Property: " + currentColorProperty);
+        switch (currentColorProperty)
+        { 
+            case ColorProperty.GameWall:
+                gameWallClr.color = AccessibilityManager.GetCurrentProfile().gameWallClr;
+                break;
+            case ColorProperty.StartPoint:
+                startPointClr.color = AccessibilityManager.GetCurrentProfile().startPointClr;
+                break;
+            case ColorProperty.EndPoint:
+                endPointClr.color = AccessibilityManager.GetCurrentProfile().endPointClr;
+                break;
+            case ColorProperty.HighHealth:
+                highHealthClr.color = AccessibilityManager.GetCurrentProfile().highHealthClr;
+                break;
+            case ColorProperty.LowHealth:
+                lowHealthClr.color = AccessibilityManager.GetCurrentProfile().lowHealthClr;
+                break;
+            case ColorProperty.Turret:
+                turretClr.color = AccessibilityManager.GetCurrentProfile().turretClr;
+                break;
+            case ColorProperty.TurretBullet:
+                turretBulletClr.color = AccessibilityManager.GetCurrentProfile().turretBulletClr;
+                break;
+            case ColorProperty.EnemyRoute:
+                enemyRouteClr.color = AccessibilityManager.GetCurrentProfile().enemyRouteClr;
+                break;
+            case ColorProperty.Enemy:
+                enemyClr.color = AccessibilityManager.GetCurrentProfile().enemyClr;
+                break;
+        }
     }
 }

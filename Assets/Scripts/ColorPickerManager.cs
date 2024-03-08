@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,11 +20,13 @@ public class ColorPickerManager : MonoBehaviour
 
     private static AccessibilityManager AccessibilityManager;
     private static GameManager GameManager;
+    private static CustomColorManager CustomColorManager;
 
     private void Awake()
     {
         AccessibilityManager = FindObjectOfType<AccessibilityManager>();
         GameManager = FindObjectOfType<GameManager>();
+        CustomColorManager = FindObjectOfType<CustomColorManager>();
     }
 
     void Start()
@@ -101,6 +102,8 @@ public class ColorPickerManager : MonoBehaviour
     {
         Color newColor = colorBlock.color;
         AccessibilityManager.UpdateCustomProfile(currentColorProperty, newColor);
+        CustomColorManager.UpdateColourBlocks(currentColorProperty);
+        Debug.Log("Color saved: " + newColor);
         SceneManager.UnloadSceneAsync("ColorPicker");
     }
 

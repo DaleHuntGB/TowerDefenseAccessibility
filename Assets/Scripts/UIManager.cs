@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -69,6 +68,7 @@ public class UIManager : MonoBehaviour
 
     void CustomProfileColorSelection()
     {
+        // Load Custom Profile Colour Manager - Displays all colours for all current game objects.
         SceneManager.LoadScene("CustomProfileColorManager", LoadSceneMode.Additive);
     }
 }

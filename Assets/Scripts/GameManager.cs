@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,7 +38,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // Find All GameObjects by their tags
+        // Find All GameObjects by their tags -- Not sure if this is the best approach.
         gameWall = GameObject.FindGameObjectWithTag("GameWall");
         gameTiles = GameObject.FindGameObjectsWithTag("GameTile");
         startPoint = GameObject.FindGameObjectWithTag("StartPoint");
@@ -143,10 +141,13 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator SpawnEnemyWave()
     {
-        for (int i = 0; i < currentWaveCount; i++)
+        if (!isGameOver)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(1f);
+            for (int i = 0; i < currentWaveCount; i++)
+            {
+                SpawnEnemy();
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
     public void SpawnEnemy()
@@ -206,6 +207,9 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        // Set Game Over Flag
+        isGameOver = true;
+
         // Destroy All Enemies.
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
