@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,12 +17,26 @@ public class ColorPickerManager : MonoBehaviour
     public Slider blueSlider;
 
     public Button saveColours;
+    public Button backBtn;
+    public TextMeshProUGUI colourSelected;
 
     public ColorProperty currentColorProperty;
 
     private static AccessibilityManager AccessibilityManager;
     private static GameManager GameManager;
     private static CustomColorManager CustomColorManager;
+    private Dictionary<ColorProperty, string> colourStrings = new Dictionary<ColorProperty, string>
+    {
+        {ColorProperty.GameWall, "Game Wall"},
+        {ColorProperty.StartPoint, "Start Point"},
+        {ColorProperty.EndPoint, "End Point"},
+        {ColorProperty.EnemyRoute, "Enemy Route"},
+        {ColorProperty.Enemy, "Enemy"},
+        {ColorProperty.Turret, "Turret"},
+        {ColorProperty.TurretBullet, "Turret Bullet"},
+        {ColorProperty.HighHealth, "High Health"},
+        {ColorProperty.LowHealth, "Low Health"},
+    };
 
     private void Awake()
     {
@@ -39,7 +55,14 @@ public class ColorPickerManager : MonoBehaviour
         blueSlider.onValueChanged.AddListener(delegate { UpdateColorsViaSliders(); });
 
         saveColours.onClick.AddListener(delegate { SaveColours(); });
+
+        backBtn.onClick.AddListener(delegate { SceneManager.UnloadSceneAsync("ColorPicker"); });
     } 
+
+    void Update()
+    {
+        UpdateSelectedColourText();
+    }
 
     private void UpdateColorsViaInput()
     {
@@ -83,8 +106,46 @@ public class ColorPickerManager : MonoBehaviour
         }
     }
 
-    public void InitializeValues(Color initialColor)
+    public void InitializeValues(ColorProperty colorProperty)
     {
+        Color initialColor = new Color();
+        if (colorProperty == ColorProperty.GameWall)
+        {
+            initialColor = CustomColorManager.gameWallClr.color;
+        }
+        else if (colorProperty == ColorProperty.StartPoint)
+        {
+            initialColor = CustomColorManager.startPointClr.color;
+        }
+        else if (colorProperty == ColorProperty.EndPoint)
+        {
+            initialColor = CustomColorManager.endPointClr.color;
+        }
+        else if (colorProperty == ColorProperty.EnemyRoute)
+        {
+            initialColor = CustomColorManager.enemyRouteClr.color;
+        }
+        else if (colorProperty == ColorProperty.Enemy)
+        {
+            initialColor = CustomColorManager.enemyClr.color;
+        }
+        else if (colorProperty == ColorProperty.Turret)
+        {
+            initialColor = CustomColorManager.turretClr.color;
+        }
+        else if (colorProperty == ColorProperty.TurretBullet)
+        {
+            initialColor = CustomColorManager.turretBulletClr.color;
+        }
+        else if (colorProperty == ColorProperty.HighHealth)
+        {
+            initialColor = CustomColorManager.highHealthClr.color;
+        }
+        else if (colorProperty == ColorProperty.LowHealth)
+        {
+            initialColor = CustomColorManager.lowHealthClr.color;
+        }
+
         float redValue = initialColor.r * 255;
         float greenValue = initialColor.g * 255;
         float blueValue = initialColor.b * 255;
@@ -107,4 +168,9 @@ public class ColorPickerManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("ColorPicker");
     }
 
+    private void UpdateSelectedColourText()
+    { 
+        CustomColorManager.GetCurrentColorPicked(currentColorProperty);
+        colourSelected.text = colourStrings[currentColorProperty] + " Colour";
+    }
 }

@@ -26,7 +26,7 @@ public class CustomColorManager : MonoBehaviour
     public Button enemyRouteClrBtn;
     public Button enemyClrBtn;
 
-    public GameObject colorPicker;
+    public GameObject color;
     public ColorProperty currentColorProperty;
 
     public Button saveColorSelection;
@@ -75,6 +75,11 @@ public class CustomColorManager : MonoBehaviour
         ColorPickerManager = FindObjectOfType<ColorPickerManager>();
     }
 
+    public ColorProperty GetSelectedColour(ColorProperty currentColorProperty)
+    {
+        return currentColorProperty;
+    }
+
 
     private IEnumerator WaitForSceneLoad(AsyncOperation asyncLoad, ColorProperty colorProperty)
     {
@@ -91,6 +96,7 @@ public class CustomColorManager : MonoBehaviour
         {
             // Set the color property to be edited
             colorPickerManager.currentColorProperty = colorProperty;
+            colorPickerManager.InitializeValues(colorProperty);
         }
         else
         {
@@ -138,5 +144,10 @@ public class CustomColorManager : MonoBehaviour
                 enemyClr.color = AccessibilityManager.GetCurrentProfile().enemyClr;
                 break;
         }
+    }
+
+    public void GetCurrentColorPicked(ColorProperty currentColorProperty)
+    {
+        this.currentColorProperty = currentColorProperty;
     }
 }

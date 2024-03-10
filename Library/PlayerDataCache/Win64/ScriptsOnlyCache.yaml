@@ -170,21 +170,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1606}
     - Class: 114
-      Script: {instanceID: 1728}
-    - Class: 114
       Script: {instanceID: 2606}
     - Class: 114
       Script: {instanceID: 2812}
     - Class: 114
-      Script: {instanceID: 2960}
-    - Class: 114
       Script: {instanceID: 3100}
-    - Class: 114
-      Script: {instanceID: 4078}
-    - Class: 114
-      Script: {instanceID: 4864}
-    - Class: 114
-      Script: {instanceID: 4972}
     - Class: 114
       Script: {instanceID: 5044}
     - Class: 114
@@ -657,7 +647,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 605367d764beb45c04eeed090abd7594
+      Hash: 7b448236c39adb32b43cb1a8e1862340
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ColorPickerManager
@@ -1389,7 +1379,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: a0d3c5103207db1562abc9b79a14720b
+      Hash: e2fb62a71dcc30fa7182473bd34bf5ae
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CustomColorManager

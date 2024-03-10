@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|e:\\university assessments\\computerprojectv2\\towerdefenseaccessibility\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\customcolormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\customcolormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\turretcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turretcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\colorpickermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\colorpickermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\turretbulletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turretbulletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|e:\\university assessments\\computerprojectv2\\towerdefenseaccessibility\\assets\\scripts\\customcolormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\customcolormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\accessibilitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\accessibilitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\colorproperty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\colorproperty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,104 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CameraController.cs",
-              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\CameraController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraController.cs",
-              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\CameraController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CameraController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAJAAAA",
+              "DocumentIndex": 2,
+              "Title": "AccessibilityManager.cs",
+              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\AccessibilityManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AccessibilityManager.cs",
+              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\AccessibilityManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AccessibilityManager.cs",
+              "ViewState": "AQIAAJ4AAAAAAAAAAAAIwL8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-04T16:14:27.134Z"
+              "WhenOpened": "2024-03-10T14:29:25.223Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "ColorProperty.cs",
+              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\ColorProperty.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ColorProperty.cs",
+              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\ColorProperty.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ColorProperty.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T14:11:33.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CustomColorManager.cs",
               "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\CustomColorManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CustomColorManager.cs",
               "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\CustomColorManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\CustomColorManager.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAowGcAAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T21:05:14.344Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UIManager.cs",
-              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\UIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UIManager.cs",
-              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\UIManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UIManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T21:05:14.376Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TurretController.cs",
-              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\TurretController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TurretController.cs",
-              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\TurretController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TurretController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwAcAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T21:05:14.377Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T21:05:14.377Z",
+              "WhenOpened": "2024-02-23T21:05:14.344Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "ColorPickerManager.cs",
               "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\ColorPickerManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ColorPickerManager.cs",
               "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\ColorPickerManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ColorPickerManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAA2AAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwDMAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T21:05:14.549Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TurretBulletController.cs",
-              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\TurretBulletController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TurretBulletController.cs",
-              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\TurretBulletController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TurretBulletController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T21:05:14.55Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EnemyController.cs",
-              "DocumentMoniker": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\EnemyController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyController.cs",
-              "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\EnemyController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\EnemyController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAA1wBIAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T21:05:14.551Z"
+              "WhenOpened": "2024-02-23T21:05:14.549Z",
+              "EditorCaption": ""
             }
           ]
         }
