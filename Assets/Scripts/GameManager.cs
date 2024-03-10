@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private GameObject enemyRoute;
     private GameObject[] spawnedEnemies;
     private GameObject turret;
-    private GameManager GM;
+    public static GameManager GM = null;
     //private GameObject turretBullet;
     private float currentHealth = 500f;
     private float maxHealth = 500f;
@@ -34,35 +34,55 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false;
     private int playerMoney = 500;
 
-    void Start()
+    void Awake()
     {
         if (GM == null)
         {
             GM = this;
+            DontDestroyOnLoad(gameObject);
         }
         else if (GM != this)
         {
             Destroy(gameObject);
         }
-        // Find All GameObjects by their tags -- Not sure if this is the best approach.
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        restartGameText.text = "";
+        restartGameOverlay.enabled = false;
+        isGameOver = false;
+        currentHealth = maxHealth;
+        playerMoney = 500;
+        currentWaveCount = 0;
+        UpdateGameTiles();
+        UpdateUITextElements();
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
         gameWall = GameObject.FindGameObjectWithTag("GameWall");
         gameTiles = GameObject.FindGameObjectsWithTag("GameTile");
         startPoint = GameObject.FindGameObjectWithTag("StartPoint");
         endPoint = GameObject.FindGameObjectWithTag("EndPoint");
         enemyRoute = GameObject.FindGameObjectWithTag("EnemyRoute");
         turret = GameObject.FindGameObjectWithTag("Turret");
-        //turretBullet = GameObject.FindGameObjectWithTag("TurretBullet");
-
-        // Perform a debug check to ensure all objects are correctly initialized
+        playerHPText = GameObject.FindGameObjectWithTag("PlayerHPText").GetComponent<TMPro.TextMeshProUGUI>();
+        playerMoneyText = GameObject.FindGameObjectWithTag("PlayerMoneyText").GetComponent<TMPro.TextMeshProUGUI>();
+        waveCountText = GameObject.FindGameObjectWithTag("WaveCountText").GetComponent<TMPro.TextMeshProUGUI>();
+        restartGameText = GameObject.FindGameObjectWithTag("RestartGameText").GetComponent<TMPro.TextMeshProUGUI>();
+        restartGameOverlay = GameObject.FindGameObjectWithTag("RestartGameOverlay").GetComponent<RawImage>();
         GameObjectsDebug();
-
-        AccessibilityManager.ApplyColorProfile(AccessibilityManager.currentProfile);
-
-        // Update UI Text Elements
+        AccessibilityManager = FindObjectOfType<AccessibilityManager>();
+        if (AccessibilityManager != null)
+        {
+            AccessibilityManager.ApplyColorProfile(AccessibilityManager.currentProfile);
+        }
+        UpdateGameTiles();
         UpdateUITextElements();
-
-        restartGameText.text = "";
-        restartGameOverlay.enabled = false;
     }
 
     void Update()
@@ -77,9 +97,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(SpawnEnemyWave());
             }
         }
-
         UserInput();
-
     }
 
     IEnumerator LoadSettingsMenuCoroutine()
@@ -122,16 +140,27 @@ public class GameManager : MonoBehaviour
         // Interpolate between the high and low health colors based on the current health percentage
         Color tileColor = Color.Lerp(currentProfile.lowHealthClr, currentProfile.highHealthClr, healthPercentage);
 
+        // Check if gameTiles is null or empty
+        if (gameTiles == null || gameTiles.Length == 0)
+        {
+            // Re-acquire gameTiles references here, for example:
+            gameTiles = GameObject.FindGameObjectsWithTag("GameTile");
+        }
+
         // Apply the interpolated color to each game tile
         foreach (var gameTile in gameTiles)
         {
-            var renderer = gameTile.GetComponent<Renderer>();
-            if (renderer != null)
+            if (gameTile != null) // Check if the gameTile is not null
             {
-                renderer.material.color = tileColor;
+                var renderer = gameTile.GetComponent<Renderer>();
+                if (renderer != null)
+                {
+                    renderer.material.color = tileColor;
+                }
             }
         }
     }
+
 
     public IEnumerator SpawnEnemyWave()
     {
@@ -250,6 +279,7 @@ public class GameManager : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GM.Awake();
     }
 
     private void UserInput()
@@ -278,5 +308,5 @@ public class GameManager : MonoBehaviour
         {
             RestartGame();
         }
-    }
+    } 
 }

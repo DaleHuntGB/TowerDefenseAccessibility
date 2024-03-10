@@ -37,11 +37,23 @@ public class AccessibilityManager : MonoBehaviour
     public GameObject turret;
     public GameObject turretBullet;
 
+    private static AccessibilityManager AM = null;
+
     public ColorProperty currentColorProperty;
     private void Awake()
     {
         DefineProfiles();
         currentProfile = defaultProfile;
+
+        if (AM == null)
+        {
+            AM = this;
+            DontDestroyOnLoad(gameObject); // Prevents the GameManager from being destroyed when reloading the scene
+        }
+        else if (AM != this)
+        {
+            Destroy(gameObject); // Destroys any duplicate instances
+        }
     }
 
     // Define Each Color For Each Profile.

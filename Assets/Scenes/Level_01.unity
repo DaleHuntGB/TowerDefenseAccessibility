@@ -560,8 +560,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1811420527}
-  - component: {fileID: 1811420528}
   - component: {fileID: 1811420529}
+  - component: {fileID: 1811420528}
   m_Layer: 0
   m_Name: _AccessibilityManager
   m_TagString: Untagged
@@ -626,7 +626,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1904992563}
   - component: {fileID: 1904992564}
-  - component: {fileID: 1904992565}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: GameManager
@@ -669,18 +668,6 @@ MonoBehaviour:
   waveCountText: {fileID: 1308182528}
   restartGameText: {fileID: 5341611}
   restartGameOverlay: {fileID: 595494360}
---- !u!114 &1904992565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904992562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86638cf074ebb0945bb66df16a029bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2010938196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2586908663287098890, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
@@ -697,6 +684,26 @@ PrefabInstance:
     - target: {fileID: 2731964950461401415, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
       propertyPath: m_Name
       value: 32x32 Game Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296898681362923929, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: m_TagString
+      value: PlayerHPText
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366760258548484809, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366760258548484809, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: m_TagString
+      value: RestartGameOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459406025780157468, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: m_TagString
+      value: WaveCountText
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476597858764654571, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: m_TagString
+      value: PlayerMoneyText
       objectReference: {fileID: 0}
     - target: {fileID: 5191103419107742824, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -737,6 +744,14 @@ PrefabInstance:
     - target: {fileID: 5191103419107742824, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586794695065328922, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: m_TagString
+      value: RestartGameText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955917788963441082, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -18,6 +18,12 @@ TagManager:
   - UI
   - Settings
   - ColorPicker
+  - SpawnPoint
+  - PlayerHPText
+  - PlayerMoneyText
+  - WaveCountText
+  - RestartGameText
+  - RestartGameOverlay
   layers:
   - Default
   - TransparentFX

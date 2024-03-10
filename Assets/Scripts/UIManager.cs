@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
         tritanopiaClrBtn.onClick.AddListener(() => OnColorProfileChanged("Tritanopia"));
         highContrastClrBtn.onClick.AddListener(() => OnColorProfileChanged("HighContrast"));
         greyscaleClrBtn.onClick.AddListener(() => OnColorProfileChanged("Greyscale"));
-        customProfileBtn.onClick.AddListener(() => CustomProfileColorSelection());
+        customProfileBtn.onClick.AddListener(() => OnColorProfileChanged("CustomProfile"));
         resumeGameBtn.onClick.AddListener(() => GameManager.ResumeGame());
         quitGameBtn.onClick.AddListener(() => GameManager.QuitGame());
     }
@@ -45,6 +45,10 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("New Colour Profile: " + selectedProfile);
         GameManager.UpdateGameTiles();
+        if (selectedProfile == "CustomProfile")
+        {
+            CustomProfileColorSelection();
+        }
     }
 
     public bool IsSceneLoaded(string sceneName)
