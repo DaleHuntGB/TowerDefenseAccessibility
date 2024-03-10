@@ -46,12 +46,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
-        restartGameText.text = "";
-        restartGameOverlay.enabled = false;
-        isGameOver = false;
-        currentHealth = maxHealth;
-        playerMoney = 500;
-        currentWaveCount = 0;
+        ResetGame();
         UpdateGameTiles();
         UpdateUITextElements();
     }
@@ -61,7 +56,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void FindUIElements()
     {
         spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
         gameWall = GameObject.FindGameObjectWithTag("GameWall");
@@ -75,12 +70,27 @@ public class GameManager : MonoBehaviour
         waveCountText = GameObject.FindGameObjectWithTag("WaveCountText").GetComponent<TMPro.TextMeshProUGUI>();
         restartGameText = GameObject.FindGameObjectWithTag("RestartGameText").GetComponent<TMPro.TextMeshProUGUI>();
         restartGameOverlay = GameObject.FindGameObjectWithTag("RestartGameOverlay").GetComponent<RawImage>();
-        GameObjectsDebug();
         AccessibilityManager = FindObjectOfType<AccessibilityManager>();
         if (AccessibilityManager != null)
         {
             AccessibilityManager.ApplyColorProfile(AccessibilityManager.currentProfile);
         }
+        GameObjectsDebug();
+    }
+
+    private void ResetGame()
+    {
+        restartGameText.text = "";
+        restartGameOverlay.enabled = false;
+        isGameOver = false;
+        currentHealth = maxHealth;
+        playerMoney = 500;
+        currentWaveCount = 0;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindUIElements();
         UpdateGameTiles();
         UpdateUITextElements();
     }
