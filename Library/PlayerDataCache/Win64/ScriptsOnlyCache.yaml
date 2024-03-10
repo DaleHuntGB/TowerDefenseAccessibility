@@ -39,7 +39,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Slider
@@ -106,8 +105,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 1564}
     - Class: 114
       Script: {instanceID: 1606}
-    - Class: 114
-      Script: {instanceID: 1728}
     - Class: 114
       Script: {instanceID: 2606}
     - Class: 114
@@ -370,8 +367,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 1564}
     - Class: 114
       Script: {instanceID: 1606}
-    - Class: 114
-      Script: {instanceID: 2654}
     - Class: 114
       Script: {instanceID: 2812}
     - Class: 114

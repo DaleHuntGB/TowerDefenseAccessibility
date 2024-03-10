@@ -76,9 +76,17 @@ Additionally, this allows for me to create a custom profile that can easily be m
 
 ![Custom Profile - User Options](https://i.imgur.com/gU9ghkD.png)
 
+#### Custom Profile - User Options [Updated]
+
+![Custom Profile - User Options](https://i.imgur.com/G5tv6JZ.png)
+
 #### Custom Built Colour Picker
 
 ![Custom Built Colour Picker](https://i.imgur.com/tJsLXBu.gif)
+
+#### Custom Built Colour Picker [Updated]
+
+![Custom Built Colour Picker](https://i.imgur.com/QLkFE8R.gif)
 
 #### Custom Profile Demonstration
 
