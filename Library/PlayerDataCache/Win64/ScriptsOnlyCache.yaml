@@ -647,7 +647,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 7b448236c39adb32b43cb1a8e1862340
+      Hash: a00c4962d325d97745c1d73a165efe72
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ColorPickerManager
@@ -1379,7 +1379,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: e2fb62a71dcc30fa7182473bd34bf5ae
+      Hash: c02f46a2584e2483dc4b7d05f089f9b9
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CustomColorManager

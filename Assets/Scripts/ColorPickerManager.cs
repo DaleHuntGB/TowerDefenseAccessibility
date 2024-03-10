@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class ColorPickerManager : MonoBehaviour
 {
-    public Image colorBlock;
+    public Image currentColorBlock;
+    public Image updatedColorBlock;
     public TMP_InputField redInput;
     public TMP_InputField greenInput;
     public TMP_InputField blueInput;
@@ -66,7 +67,7 @@ public class ColorPickerManager : MonoBehaviour
 
     private void UpdateColorsViaInput()
     {
-        if (colorBlock != null)
+        if (updatedColorBlock != null)
         {
             float redValue = 0;
             float greenValue = 0;
@@ -87,7 +88,7 @@ public class ColorPickerManager : MonoBehaviour
                 blueValue = Mathf.Clamp(blueValue, 0, 255) / 255;
             }
 
-            colorBlock.color = new Color((float)redValue, (float)greenValue, (float)blueValue); 
+            updatedColorBlock.color = new Color((float)redValue, (float)greenValue, (float)blueValue); 
 
             redSlider.value = redValue;
             greenSlider.value = greenValue;
@@ -97,9 +98,9 @@ public class ColorPickerManager : MonoBehaviour
 
     private void UpdateColorsViaSliders()
     {
-        if (colorBlock != null)
+        if (updatedColorBlock != null)
         {
-            colorBlock.color = new Color(redSlider.value, greenSlider.value, blueSlider.value);
+            updatedColorBlock.color = new Color(redSlider.value, greenSlider.value, blueSlider.value);
             redInput.text = Mathf.Floor((redSlider.value * 255)).ToString();
             greenInput.text = Mathf.Floor((greenSlider.value * 255)).ToString();
             blueInput.text = Mathf.Floor((blueSlider.value * 255)).ToString();
@@ -157,11 +158,13 @@ public class ColorPickerManager : MonoBehaviour
         redSlider.value = initialColor.r;
         greenSlider.value = initialColor.g;
         blueSlider.value = initialColor.b;
+
+        currentColorBlock.color = initialColor;
     }
 
     private void SaveColours()
     {
-        Color newColor = colorBlock.color;
+        Color newColor = updatedColorBlock.color;
         AccessibilityManager.UpdateCustomProfile(currentColorProperty, newColor);
         CustomColorManager.UpdateColourBlocks(currentColorProperty);
         Debug.Log("Color saved: " + newColor);

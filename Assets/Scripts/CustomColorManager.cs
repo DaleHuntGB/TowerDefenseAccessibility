@@ -26,8 +26,8 @@ public class CustomColorManager : MonoBehaviour
     public Button enemyRouteClrBtn;
     public Button enemyClrBtn;
 
-    public GameObject color;
-    public ColorProperty currentColorProperty;
+    private GameObject color;
+    private ColorProperty currentColorProperty;
 
     public Button saveColorSelection;
 
@@ -63,6 +63,8 @@ public class CustomColorManager : MonoBehaviour
         enemyClrBtn.onClick.AddListener(() => ToggleColorPicker(ColorProperty.Enemy));
 
         saveColorSelection.onClick.AddListener(() => SaveColorSelection());
+
+
 
     }
 

@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\colorpickermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|e:\\university assessments\\computerprojectv2\\towerdefenseaccessibility\\assets\\scripts\\colorpickermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\colorpickermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|e:\\university assessments\\computerprojectv2\\towerdefenseaccessibility\\assets\\scripts\\customcolormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\assets\\scripts\\customcolormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{670B7014-643B-8519-CF6B-C3186ED9D5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\customcolormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -38,8 +38,7 @@
               "RelativeToolTip": "Assets\\Scripts\\AccessibilityManager.cs",
               "ViewState": "AQIAAJ4AAAAAAAAAAAAIwL8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-10T14:29:25.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-10T14:29:25.223Z"
             },
             {
               "$type": "Document",
@@ -61,7 +60,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\CustomColorManager.cs",
               "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\CustomColorManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\CustomColorManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAbAAAA",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAcwB8AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-23T21:05:14.344Z",
               "EditorCaption": ""
@@ -74,7 +73,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\ColorPickerManager.cs",
               "ToolTip": "E:\\University Assessments\\ComputerProjectV2\\TowerDefenseAccessibility\\Assets\\Scripts\\ColorPickerManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ColorPickerManager.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwDMAAABKAAAA",
+              "ViewState": "AQIAAJgAAAAAAAAAAAAmwJcAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-23T21:05:14.549Z",
               "EditorCaption": ""
