@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     // Public Variables
     public Transform spawnPoint;
     public Transform enemy;
+    public TMPro.TextMeshProUGUI playerHPText;
+    public TMPro.TextMeshProUGUI playerMoneyText;
+    public TMPro.TextMeshProUGUI waveCountText;
     // Private
     private GameObject gameWall;
     private GameObject[] gameTiles;
@@ -51,6 +54,9 @@ public class GameManager : MonoBehaviour
         GameObjectsDebug();
 
         AccessibilityManager.ApplyColorProfile(AccessibilityManager.currentProfile);
+
+        // Update UI Text Elements
+        UpdateUITextElements();
     }
 
     void Update()
@@ -60,7 +66,7 @@ public class GameManager : MonoBehaviour
         {
             spawnCooldown = spawnInterval;
             currentWaveCount++;
-            if (currentWaveCount <= maxWaveCount)
+            if (currentWaveCount <= maxWaveCount && !isGameOver)
             {
                 StartCoroutine(SpawnEnemyWave());
             }
@@ -147,6 +153,7 @@ public class GameManager : MonoBehaviour
             {
                 SpawnEnemy();
                 yield return new WaitForSeconds(1f);
+                UpdateUITextElements();
             }
         }
     }
@@ -172,6 +179,9 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
 
+        // Update UI Text Elements
+        UpdateUITextElements();
+
     }
 
     private void PlaceTurret(int turretCost, GameObject turret)
@@ -189,6 +199,8 @@ public class GameManager : MonoBehaviour
                     Instantiate(turret, turretPosition, Quaternion.identity);
                     playerMoney -= turretCost;
                     Debug.Log("Turret Placed. Remaining money: " + playerMoney);
+                    // Update UI Text Elements
+                    UpdateUITextElements();
                 }
             }
         }
@@ -230,5 +242,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(turretBullet);
         }
-    }    
+    }
+
+    private void UpdateUITextElements()
+    {
+        playerHPText.text = "Health: " + (currentHealth/maxHealth) * 100 + "%";
+        playerMoneyText.text = "Money: $" + playerMoney;
+        waveCountText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
+    }
 }
