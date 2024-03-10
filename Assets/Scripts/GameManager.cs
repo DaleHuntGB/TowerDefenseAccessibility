@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI playerHPText;
     public TMPro.TextMeshProUGUI playerMoneyText;
     public TMPro.TextMeshProUGUI waveCountText;
+    public TMPro.TextMeshProUGUI restartGameText;
+    public RawImage restartGameOverlay;
     // Private
     private GameObject gameWall;
     private GameObject[] gameTiles;
@@ -57,6 +60,9 @@ public class GameManager : MonoBehaviour
 
         // Update UI Text Elements
         UpdateUITextElements();
+
+        restartGameText.text = "";
+        restartGameOverlay.enabled = false;
     }
 
     void Update()
@@ -72,25 +78,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Scene settingsMenuScene = SceneManager.GetSceneByName("Settings_Menu");
-
-            if (settingsMenuScene.isLoaded)
-            {
-                SceneManager.UnloadSceneAsync("Settings_Menu");
-                Time.timeScale = 1; // Resume time when closing the settings menu.
-            }
-            else
-            {
-                StartCoroutine(LoadSettingsMenuCoroutine());
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            PlaceTurret(100, turret);
-        }
+        UserInput();
 
     }
 
@@ -222,6 +210,14 @@ public class GameManager : MonoBehaviour
         // Set Game Over Flag
         isGameOver = true;
 
+        // Display Game Over Text
+        restartGameText.text = "Press 'R' to Restart";
+        restartGameOverlay.enabled = true;
+
+        playerMoneyText.text = "";
+        waveCountText.text = "";
+        playerHPText.text = "";
+
         // Destroy All Enemies.
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
@@ -249,5 +245,38 @@ public class GameManager : MonoBehaviour
         playerHPText.text = "Health: " + (currentHealth/maxHealth) * 100 + "%";
         playerMoneyText.text = "Money: $" + playerMoney;
         waveCountText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
+    }
+
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void UserInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Scene settingsMenuScene = SceneManager.GetSceneByName("Settings_Menu");
+
+            if (settingsMenuScene.isLoaded)
+            {
+                SceneManager.UnloadSceneAsync("Settings_Menu");
+                Time.timeScale = 1;
+            }
+            else
+            {
+                StartCoroutine(LoadSettingsMenuCoroutine());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            PlaceTurret(100, turret);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && isGameOver)
+        {
+            RestartGame();
+        }
     }
 }

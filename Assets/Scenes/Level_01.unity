@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &5341611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7299255950749842037, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+  m_PrefabInstance: {fileID: 2978950766209527130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &303808204 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1491513848047912580, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
@@ -132,6 +143,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &595494360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3247854023253022663, guid: 2a6cf65cd44cc8c47b67970d0fe81cfa, type: 3}
+  m_PrefabInstance: {fileID: 2978950766209527130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &705507993
@@ -645,6 +667,8 @@ MonoBehaviour:
   playerHPText: {fileID: 303808204}
   playerMoneyText: {fileID: 1000219494}
   waveCountText: {fileID: 1308182528}
+  restartGameText: {fileID: 5341611}
+  restartGameOverlay: {fileID: 595494360}
 --- !u!114 &1904992565
 MonoBehaviour:
   m_ObjectHideFlags: 0
